@@ -1,0 +1,93 @@
+// variables
+@import "fonts";
+@import "font-awesome";
+
+// == Font Face ==
+@font-face {
+  font-family: Roboto;
+  src: url('~@/assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: RobotoMono;
+  src: url('~@/assets/fonts/RobotoMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: Cansiparane;
+  src: url('~@/assets/fonts/Cansiparane.otf');
+}
+
+// == General ==
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  font-size: $default-font-size;
+  font-family: $global-font-family;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: $default-font-size;
+  font-family: $global-font-family;
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+th {
+  font-weight: normal;
+}
+
+// Global styles
+.no-array-select-dropdown.el-popper {
+  margin: 5px 0 !important;
+  box-shadow: 0 2px 6px #b0b0b0;
+  border: none;
+}
+
+.no-array-select-dropdown.el-popper .popper__arrow {
+  display: none !important;
+}
+
+.no-array-select-dropdown.el-popper .el-select-dropdown__item,
+.no-array-select-dropdown.el-popper .el-cascader-panel {
+  font-size: 13px;
+}
+
+.pre-wrap-confirm-text {
+  white-space: pre-wrap;
+  line-height: 1.6em;
+}

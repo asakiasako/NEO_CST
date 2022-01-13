@@ -1,0 +1,76 @@
+{
+  "name": "coherent-system-test",
+  "productName": "Coherent System Test",
+  "version": "0.2.23",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "electron:build": "chcp 65001 && cd py-code && poetry run build && cd .. && vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "preinstall": "cd py-code && poetry install && cd ..",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  },
+  "main": "background.js",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.3.3",
+    "@msgpack/msgpack": "^2.7.0",
+    "core-js": "^3.6.5",
+    "electron-log": "^4.3.5",
+    "electron-updater": "^4.3.9",
+    "element-ui": "^2.15.2",
+    "google-protobuf": "^3.17.3",
+    "jsplumb": "^2.14.3",
+    "lodash": "^4.17.21",
+    "marked": "^2.1.3",
+    "vue": "^2.6.11",
+    "vue-data-tables": "^3.4.5",
+    "vue-electron": "^1.0.6",
+    "vue-router": "^3.2.0",
+    "vuedraggable": "^2.23.2",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "electron": "12.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-electron-builder": "^2.0.0",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

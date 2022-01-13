@@ -1,0 +1,2 @@
+DEFAULT_SERVER_PORT = 23300
+MAX_MESSAGE_LENGTH = 10*1024*1024  # grpc default is 4M, extend to 10M

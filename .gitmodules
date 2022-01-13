@@ -1,0 +1,3 @@
+[submodule "py-code/src/libs/pyinst"]
+	path = py-code/src/libs/pyinst
+	url = git@github.com:asakiasako/NEO_PYINST.git
