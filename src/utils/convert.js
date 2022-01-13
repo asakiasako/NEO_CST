@@ -6,7 +6,7 @@ export function intArrayToAscii (intArray) {
   if (typeof intArray === 'number') {
     intArray = [intArray]
   }
-  for (let item of intArray) {
+  for (const item of intArray) {
     let str0 = ''
     let int0 = item
     while (int0 > 0) {

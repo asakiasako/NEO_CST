@@ -52,12 +52,12 @@
 export default {
   props: ['alias', 'instType', 'label'],
   data () {
-    let isConnected = false
-    let cfgDlgVisible = false
-    let attValue = null
-    let maxAtt = Infinity
-    let enabled = false
-    let configs = {
+    const isConnected = false
+    const cfgDlgVisible = false
+    const attValue = null
+    const maxAtt = Infinity
+    const enabled = false
+    const configs = {
       'Center Frequency': {
         type: 'number',
         controls: false,
@@ -102,13 +102,13 @@ export default {
   },
   methods: {
     getAttStatus () {
-      let self = this
-      let promises = []
-      let methodKeys = [
+      const self = this
+      const promises = []
+      const methodKeys = [
         'get_att',
         'is_enabled'
       ]
-      for (let i of methodKeys) {
+      for (const i of methodKeys) {
         promises.push(
           this.$rpcClient.request({
             route: ':instrument:operation:call-method',
@@ -127,7 +127,7 @@ export default {
       })
     },
     setAttValue (val) {
-      let self = this
+      const self = this
       this.$rpcClient.request({
         route: ':instrument:operation:call-method',
         kwargs: {
@@ -140,7 +140,7 @@ export default {
       })
     },
     setEnable (isEn) {
-      let self = this
+      const self = this
       this.$rpcClient.request({
         route: ':instrument:operation:call-method',
         kwargs: {
@@ -170,10 +170,10 @@ export default {
       if (this.isConnected) {
         return
       }
-      let self = this
+      const self = this
       try {
         // check connection
-        let connected = await this.$rpcClient.request({
+        const connected = await this.$rpcClient.request({
           route: ':instrument:status:check-connection',
           kwargs: {
             field: self.label
@@ -201,7 +201,7 @@ export default {
       }
     },
     disconnect () {
-      let self = this
+      const self = this
       if (!this.isConnected) return
       this.refreshOn = false
       this.isConnected = false
@@ -216,13 +216,13 @@ export default {
     },
     getConfigs () {
       // get origin configs, max/min, and options
-      let self = this
-      let promises = []
-      let cfgList = [
+      const self = this
+      const promises = []
+      const cfgList = [
         'get_frequency',
         'get_offset'
       ]
-      for (let i of cfgList) {
+      for (const i of cfgList) {
         promises.push(
           this.$rpcClient.request({
             route: ':instrument:operation:call-method',
@@ -233,13 +233,13 @@ export default {
           })
         )
       }
-      let attrList = [
+      const attrList = [
         'min_frequency',
         'max_frequency',
         'min_offset',
         'max_offset'
       ]
-      for (let i of attrList) {
+      for (const i of attrList) {
         promises.push(
           this.$rpcClient.request({
             route: ':instrument:operation:get-attr',
@@ -260,15 +260,15 @@ export default {
       })
     },
     setConfigs () {
-      let self = this
-      let centerFreq = this.configs['Center Frequency'].value
-      let offset = this.configs['Att Offset'].value
-      let configMap = {
-        'set_frequency': centerFreq,
-        'set_offset': offset
+      const self = this
+      const centerFreq = this.configs['Center Frequency'].value
+      const offset = this.configs['Att Offset'].value
+      const configMap = {
+        set_frequency: centerFreq,
+        set_offset: offset
       }
-      let promises = []
-      for (let k in configMap) {
+      const promises = []
+      for (const k in configMap) {
         promises.push(
           self.$rpcClient.request({
             route: ':instrument:operation:call-method',
@@ -290,7 +290,7 @@ export default {
       })
     },
     setFrequency (freq) {
-      let self = this
+      const self = this
       if (!this.isConnected) {
         this.$alert(`${self.instTitle} - Instrument is not connected.`, 'ERROR', {
           confirmButtonText: 'OK',
@@ -319,13 +319,13 @@ export default {
     }
   },
   created () {
-    let self = this
+    const self = this
     this.$bus.$on('inst-panel:connect-all', self.connect)
     this.$bus.$on('inst-panel:disconnect-all', self.disconnect)
     this.$bus.$on('inst-panel:set-all-frequency', self.setFrequency)
   },
   beforeDestroy () {
-    let self = this
+    const self = this
     this.$bus.$off('inst-panel:connect-all', self.connect)
     this.$bus.$off('inst-panel:disconnect-all', self.disconnect)
     this.$bus.$off('inst-panel:set-all-frequency', self.setFrequency)

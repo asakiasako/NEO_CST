@@ -12,8 +12,8 @@
 export default {
   name: 'top-nav',
   data: function () {
-    let defaultActive = '/home/loop-test'
-    let menuItems = [
+    const defaultActive = '/home/loop-test'
+    const menuItems = [
       {
         index: '/home/loop-test',
         title: 'Loop Test',

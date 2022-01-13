@@ -43,7 +43,7 @@
 <script>
 export default {
   data () {
-    let inTest = false
+    const inTest = false
     return {
       inTest
     }
@@ -75,16 +75,16 @@ export default {
       this.$electron.shell.openItem('C:/AppData/Coherent System Test/Result/')
     },
     lastStep () {
-      this.$refs['currentStep'].$emit('last-step')
+      this.$refs.currentStep.$emit('last-step')
     },
     nextStep () {
-      this.$refs['currentStep'].$emit('next-step')
+      this.$refs.currentStep.$emit('next-step')
     },
     toStartPage () {
       this.$router.push({ name: 'loop-test' })
     },
     stopTest () {
-      this.$refs['currentStep'].stopTest()
+      this.$refs.currentStep.stopTest()
     }
   }
 

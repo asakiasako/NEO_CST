@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     beforeLeave (activeName) {
-      let self = this
+      const self = this
       if (activeName === 'a-d-value') {
         self.enableADRefresh = true
       } else {
